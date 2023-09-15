@@ -21,25 +21,25 @@ const Gaant = () => {
       name: "Planning", 
       id: "Task 1", 
       type: "task",
-      progress: 90, 
+      progress: 60, 
       isDisabled: false, 
       styles: { progressColor: "#ffbb54", progressSelectedColor: "#ff9e0d" },
     },
     {
       start: new Date(2020, 1, 5), 
-      end: new Date(2020, 2, 9),  
-      name: "Foundation", 
+      end: new Date(2020, 1, 9),  
+      name: "Task 2", 
       id: "Task 2", 
       type: "task",
-      progress: 20, 
+      progress: 45, 
       isDisabled: false, 
       styles: { progressColor: "#ffbb54", progressSelectedColor: "#ff9e0d" },
     },
   ];
 
   return (
-    <div className="h-full flex justify-center items-center w-full">
-      <div className="w-full">
+    <div className="h-full flex justify-center items-center max-w-fit border-2 m-6">
+      <div className="w-full ">
         <Gantt tasks={tasks} /> 
       </div>
     </div>

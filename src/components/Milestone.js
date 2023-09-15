@@ -2,7 +2,7 @@ import React from 'react'
 
 const Milestone = () => {
   return (
-    <div>Milestone</div>
+    <div className='h-full'>Milestone</div>
   )
 }
 

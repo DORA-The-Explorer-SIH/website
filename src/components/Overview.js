@@ -2,8 +2,8 @@ import React from "react";
 
 const Overview = () => {
   return (
-    <div className="bg-white rounded-lg shadow-lg  m-3 h-1/5 flex justify-around  items-center">
-      <div className=" h-fit font-semibold  flex flex-col justify-center  pr-20 text-3xl border-r-2 border-black">
+    <div className="bg-white rounded-lg shadow-lg  m-3 h-32 flex justify-around items-center">
+      <div className="font-semibold flex flex-col justify-center pr-20 text-3xl border-r-2 border-black">
         Sukoon
       </div>
       <div className=" px-5 flex flex-col font-medium justify-center">

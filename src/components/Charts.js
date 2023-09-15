@@ -18,7 +18,7 @@ const Charts = () => {
   };
 
   return (
-    <div className="rounded-lg bg-white shadow-lg p-4 h-full mx-3 mb-5 flex flex-col">
+    <div className="rounded-lg bg-white shadow-lg p-4 m-3 h-mx-3 mb-5 flex flex-col">
       <div className="flex items-start p-5">
         {options.map((option) => (
           <div

@@ -4,9 +4,13 @@ import Charts from "./Charts";
 
 const Dashboard = () => {
   return (
-    <div className="flex h-full flex-col p-1">
+    <div className="flex h-full flex-col p-4 w-full">
+      <div className="w-full">
         <Overview />
+      </div>
+      <div className="w-full">
         <Charts />
+      </div>
     </div>
   );
 };
