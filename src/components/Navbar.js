@@ -8,17 +8,28 @@ import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturi
 const Navbar = () => {
   return (
     <div className="min-h-screen w-28 left-0 bg-primary flex justify-start items-center flex-col p-10">
+       <Link to="/">
+        <div className="text-3xl text-bold text-background pb-5 mb-20">DORA</div>
+      </Link>
       <Link to="/">
-        <DashboardIcon className="text-background m-5" />
+        <DashboardIcon className="text-background " />
+        <div className=" text-background mb-16 ">Dashboard</div>
+
       </Link>
       <Link to="/simulation">
-        <PrecisionManufacturingIcon className="text-background m-5" />
+        <PrecisionManufacturingIcon className="text-background " />
+        <div className=" text-background mb-16 ">Simulation</div>
+
       </Link>
       <Link to="/calendar">
-        <CalendarMonthIcon className="text-background m-5" />
+        <CalendarMonthIcon className="text-background" />
+        <div className=" text-background mb-16 ">Scheduler</div>
+
       </Link>
       <Link to="/gis">
-        <LocationOnIcon className="text-background m-5" />
+        <LocationOnIcon className="text-background " />
+        <div className=" text-background mb-16 ">GIS</div>
+
       </Link>
     </div>
   );

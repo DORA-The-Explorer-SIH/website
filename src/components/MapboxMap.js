@@ -13,22 +13,22 @@ function MapboxMap() {
   return (
     <div className="h-screen w-full flex flex-col">
       <ul className="flex w-full justify-evenly p-4 bg-background">
-        <li className="text-md text-bold">
+        <li className="text-md text-bold shadow-md p-2 bg-white">
           <button onClick={() => handleButtonClick(1)}>
             Progress Completion (in %)
           </button>
         </li>
-        <li className="text-md text-bold">
+        <li className="text-md text-bold shadow-md p-2 bg-white">
           <button onClick={() => handleButtonClick(2)}>
             Cement Available (in Kgs)
           </button>
         </li>
-        <li className="text-md text-bold">
+        <li className="text-md text-bold shadow-md p-2 bg-white">
           <button onClick={() => handleButtonClick(3)}>
             Funds allocated (in Cr.)
           </button>
         </li>
-        <li className="text-md text-bold">
+        <li className="text-md text-bold shadow-md p-2 bg-white">
           <button onClick={() => handleButtonClick(4)}>
             Delay (in months)
           </button>
