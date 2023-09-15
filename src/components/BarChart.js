@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
 const BarChart = ({ data }) => {
@@ -8,28 +8,42 @@ const BarChart = ({ data }) => {
 
   const svgRef = useRef();
 
-  // Compute x, y, and other variables using useMemo
-  const { x, y } = useMemo(() => {
-    const xScale = d3.scaleBand()
-      .domain(data.map((d, i) => i))
-      .range([0, width])
-      .padding(0.1);
-
-    const yScale = d3.scaleLinear()
-      .domain([0, d3.max(data)])
-      .nice()
-      .range([height, 0]);
-
-    return { x: xScale, y: yScale };
-  }, [data, height, width]);
-
   useEffect(() => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
 
-    // Rest of your code using x and y
+    const x = d3.scaleBand()
+      .domain(data.map((d, i) => i))
+      .range([0, width])
+      .padding(0.1);
 
-  }, [data, x, y]);
+    const y = d3.scaleLinear()
+      .domain([0, d3.max(data)])
+      .nice()
+      .range([height, 0]);
+
+    // Append the bars first
+    svg.append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`)
+      .selectAll('rect')
+      .data(data)
+      .enter().append('rect')
+      .attr('x', (d, i) => x(i))
+      .attr('y', d => y(d) - 20)
+      .attr('width', x.bandwidth())
+      .attr('height', d => height - y(d))
+      .attr('fill', 'steelblue');
+
+    svg.append('g')
+      .attr('transform', `translate(${margin.left},0)`)
+      .call(d3.axisLeft(y));
+
+    svg.append('g')
+      .attr('transform', `translate(${margin.left},${height})`)
+      .call(d3.axisBottom(x).tickFormat((d, i) => i));
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   return (
     <div className="bg-white border rounded shadow-lg ">
