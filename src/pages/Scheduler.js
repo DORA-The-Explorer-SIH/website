@@ -3,7 +3,6 @@ import Calendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import Topbar from "../components/Topbar"
 
 const Scheduler = () => {
   const calendarRef = useRef(null);

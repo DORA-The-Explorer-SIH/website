@@ -7,7 +7,6 @@ const PieChart = ({ data, colors }) => {
   const radius = Math.min(width, height) / 2;
 
   const svgRef = useRef();
-  const legendRef = useRef();
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
@@ -33,7 +32,7 @@ const PieChart = ({ data, colors }) => {
       .attr('fill', (d, i) => colorScale(i));
 
    
-  }, [data, colors]);
+  }, [data, colors, radius]);
 
   return (
     <div cl>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Simulation.css";
 import BarChart from "./BarChart"; // Import the BarChart component
 import PieChart from "./PieChart"; // Import the PieChart component
@@ -76,19 +76,20 @@ const Simulation = () => {
 
   const [output, setOutput] = useState(null);
 
+  const calculateOutput = useCallback(() => {
+    const sum = Object.values(inputs).reduce((acc, val) => acc + val, 0);
+    setOutput(sum);
+  }, [inputs]);
+
   useEffect(() => {
     calculateOutput();
-  }, [inputs]);
+  }, [calculateOutput]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setInputs({ ...inputs, [name]: parseInt(value) });
   };
 
-  const calculateOutput = () => {
-    const sum = Object.values(inputs).reduce((acc, val) => acc + val, 0);
-    setOutput(sum);
-  };
 
   return (
     <div className="">

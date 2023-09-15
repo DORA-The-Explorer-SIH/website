@@ -1,4 +1,3 @@
-import { Schedule } from "@mui/icons-material";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Simulation from "./components/Simulation";
