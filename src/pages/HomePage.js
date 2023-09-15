@@ -7,7 +7,7 @@ import Simulation from "../components/Simulation";
 const HomePage = () => {
   return (
     <Router>
-      <div className="bg-background h-screen w-full flex flex-col">
+      <div className="bg-background min-h-screen h-full w-full flex flex-col">
         <Topbar />
         <Routes>
           <Route exact path="/" element={<Dashboard />} />
