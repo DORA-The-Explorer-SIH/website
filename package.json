@@ -14,8 +14,6 @@
     "material-icons": "^1.13.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-gantt": "^2.1.8",
-    "react-horizontal-timeline": "^1.5.3",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
     "react-tooltip": "^5.21.4",
@@ -49,3 +47,5 @@
     "tailwindcss": "^3.3.3"
   }
 }
+
+

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HorizontalTimeline from "react-horizontal-timeline";
+// import HorizontalTimeline from "react-horizontal-timeline";
 
 
 const Timeline = () => {
@@ -30,14 +30,15 @@ const Timeline = () => {
     <div className="h-full flex justify-center items-center">
     <div className="w-3/4 h-full flex flex-col justify-center items-center">
       <div className="w-full h-32"> {/* Increased the height */}
-        <HorizontalTimeline
+        {/* <HorizontalTimeline
           styles={{ outline: "#FF1744", foreground: "#4CAF50" }}
           index={value}
           indexClick={(index) => {
             setValue(index);
           }}
           values={VALUES}
-        />
+        /> */}
+        sg
       </div>
       <div className="text-center text-3xl font-semibold p-4">{description[value]}</div>
     </div>
