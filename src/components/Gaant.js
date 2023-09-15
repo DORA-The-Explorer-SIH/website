@@ -1,43 +1,46 @@
-import React, { useState } from "react";
-import HorizontalTimeline from "react-horizontal-timeline";
+import React from "react";
+import { Gantt } from "gantt-task-react"; // Corrected import
+
+import "gantt-task-react/dist/index.css";
 
 const Gaant = () => {
-  const [value, setValue] = useState(0);
-
-  const VALUES = [
-    "2021-01-01",
-    "2021-02-27",
-    "2021-03-09",
-    "2021-06-22",
-    "2021-09-01",
-    "2022-02-01",
-    "2022-05-01",
-  ];
-
-  const description = [
-    "Project Initiation",
-    "Design and Planning Approval",
-    "Environmental Clearances",
-    "Civil Work Commencement",
-    "Completion of Structural Work",
-    "Utilities and Infrastructure Installation",
-    "Testing and Quality Assurance",
+  let tasks = [
+    {
+      start: new Date(2020, 1, 1),
+      end: new Date(2020, 1, 2),
+      name: "Ideation", 
+      id: "Task 0", 
+      type: "task",
+      progress: 100,
+      isDisabled: true,
+      styles: { progressColor: "#ffbb54", progressSelectedColor: "#ff9e0d" },
+    },
+    {
+      start: new Date(2020, 1, 3), 
+      end: new Date(2020, 1, 4),  
+      name: "Planning", 
+      id: "Task 1", 
+      type: "task",
+      progress: 90, 
+      isDisabled: false, 
+      styles: { progressColor: "#ffbb54", progressSelectedColor: "#ff9e0d" },
+    },
+    {
+      start: new Date(2020, 1, 5), 
+      end: new Date(2020, 2, 9),  
+      name: "Foundation", 
+      id: "Task 2", 
+      type: "task",
+      progress: 20, 
+      isDisabled: false, 
+      styles: { progressColor: "#ffbb54", progressSelectedColor: "#ff9e0d" },
+    },
   ];
 
   return (
-    <div className="h-full flex justify-center items-center">
-      <div className="w-3/4 h-full flex flex-col justify-center items-center">
-        <div className="w-full h-48"> {/* Increased the height */}
-          <HorizontalTimeline
-            styles={{ outline: "#FF1744", foreground: "#4CAF50" }}
-            index={value}
-            indexClick={(index) => {
-              setValue(index);
-            }}
-            values={VALUES}
-          />
-        </div>
-        <div className="text-center text-3xl font-semibold p-4">{description[value]}</div>
+    <div className="h-full flex justify-center items-center w-full">
+      <div className="w-full">
+        <Gantt tasks={tasks} /> 
       </div>
     </div>
   );
