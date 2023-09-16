@@ -4,18 +4,18 @@ import BarChart from "./BarChart"; // Import the BarChart component
 import PieChart from "./PieChart"; // Import the PieChart component
 import Topbar from "./Topbar";
 import HeatMap from "./HeatMap";
+import axios from "axios"; // Import axios for making HTTP requests
 
 const getRandomOptionIndex = (options) =>
   Math.floor(Math.random() * options.length);
 const getRandomValue = () => Math.floor(Math.random() * 100); // Function to generate a random value
 
 const Simulation = () => {
-  const availabilityOptions = ["Select", "Option 1", "Option 2", "Option 3"];
-  const weatherOptions = ["Select", "Sunny", "Rainy", "Cloudy"];
-  const locationOptions = ["Select", "Location 1", "Location 2", "Location 3"];
+  const weatherOptions = ["Good", "Fair", "Poor"];
+  const locationOptions = ["Urban", "Suburban", "Rural"];
 
   const [inputs, setInputs] = useState({
-    availability_of_resources: getRandomOptionIndex(availabilityOptions),
+    availability_of_resources: getRandomValue(),
     weather_condition: getRandomOptionIndex(weatherOptions),
     location: getRandomOptionIndex(locationOptions),
     number_of_workers: getRandomValue(),
@@ -76,11 +76,14 @@ const Simulation = () => {
 
   const [output, setOutput] = useState(null);
 
-  const calculateOutput = useCallback(() => {
-    const sum = Object.values(inputs).reduce((acc, val) => acc + val, 0);
-    setOutput(sum);
+  const calculateOutput = useCallback(async () => {
+    try {
+      const response = await axios.post("/your-flask-api-endpoint", inputs);
+      setOutput(response.data.prediction);
+    } catch (error) {
+      console.error("Error fetching data from the backend:", error);
+    }
   }, [inputs]);
-
   useEffect(() => {
     calculateOutput();
   }, [calculateOutput]);
@@ -89,7 +92,6 @@ const Simulation = () => {
     const { name, value } = event.target;
     setInputs({ ...inputs, [name]: parseInt(value) });
   };
-
 
   return (
     <div className="">
@@ -106,7 +108,8 @@ const Simulation = () => {
                   >
                     {inputKey.replace(/_/g, " ")}:
                   </label>
-                  {inputKey === "number_of_workers" ||
+                  {inputKey === "availability_of_resources" ||
+                  inputKey === "number_of_workers" ||
                   inputKey === "budget_allocated" ||
                   inputKey === "estimated_completion_time" ||
                   inputKey === "delay_in_inspections" ||
@@ -129,13 +132,7 @@ const Simulation = () => {
                       onChange={handleInputChange}
                       className="w-full border rounded-lg p-2"
                     >
-                      {inputKey === "availability_of_resources"
-                        ? availabilityOptions.map((option, index) => (
-                            <option key={option} value={index}>
-                              {option}
-                            </option>
-                          ))
-                        : inputKey === "weather_condition"
+                      {inputKey === "weather_condition"
                         ? weatherOptions.map((option, index) => (
                             <option key={option} value={index}>
                               {option}
@@ -153,10 +150,19 @@ const Simulation = () => {
             </div>
           </div>
           <div className="mt-4">
-            <div className="bg-white mt-10 p-4 rounded-lg shadow-lg">
+            {/* <div className="bg-white mt-10 p-4 rounded-lg shadow-lg">
               Delay Caused :{" "}
               <span className="text-xl text-bold">{output} days</span>
-            </div>
+            </div> */}
+            <button onClick={calculateOutput}>Calculate Output</button>
+
+            {/* Display the output */}
+            {output !== null && (
+              <div className="bg-white mt-10 p-4 rounded-lg shadow-lg">
+                Delay Caused :{" "}
+                <span className="text-xl text-bold">{output} days</span>
+              </div>
+            )}
           </div>
         </div>
 
@@ -183,7 +189,6 @@ const Simulation = () => {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
