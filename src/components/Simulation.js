@@ -6,25 +6,22 @@ import Topbar from "./Topbar";
 import HeatMap from "./HeatMap";
 import axios from "axios"; // Import axios for making HTTP requests
 
-const getRandomOptionIndex = (options) =>
-  Math.floor(Math.random() * options.length);
-const getRandomValue = () => Math.floor(Math.random() * 100); // Function to generate a random value
 
 const Simulation = () => {
   const weatherOptions = ["Good", "Fair", "Poor"];
   const locationOptions = ["Urban", "Suburban", "Rural"];
 
   const [inputs, setInputs] = useState({
-    availability_of_resources: getRandomValue(),
-    weather_condition: getRandomOptionIndex(weatherOptions),
-    location: getRandomOptionIndex(locationOptions),
-    number_of_workers: getRandomValue(),
-    budget_allocated: getRandomValue(),
-    estimated_completion_time: getRandomValue(),
-    delay_in_inspections: getRandomValue(),
-    delay_in_material_approval: getRandomValue(),
-    shortage_of_laborers: getRandomValue(),
-    inadequate_equipment: getRandomValue(),
+    availability_of_resources: "",
+    weather_condition: "",
+    location: "",
+    number_of_workers: "",
+    budget_allocated: "",
+    estimated_completion_time: "",
+    delay_in_inspections: "",
+    delay_in_material_approval: "",
+    shortage_of_laborers: "",
+    inadequate_equipment: "",
   });
 
   const colors = [
@@ -77,13 +74,20 @@ const Simulation = () => {
   const [output, setOutput] = useState(null);
 
   const calculateOutput = useCallback(async () => {
-    try {
-      const response = await axios.post("/your-flask-api-endpoint", inputs);
-      setOutput(response.data.prediction);
-    } catch (error) {
-      console.error("Error fetching data from the backend:", error);
-    }
+    const data = {
+      ...inputs,
+    };
+    console.log(data)
+    // axios.post('http://localhost:8000/predict', data)
+    //   .then(response => {
+    //     const prediction = response.data.prediction; 
+    //     setOutput(prediction);
+    //   })
+    //   .catch(error => {
+    //     console.error('Error while fetching prediction:', error);
+    //   });
   }, [inputs]);
+
   useEffect(() => {
     calculateOutput();
   }, [calculateOutput]);
@@ -150,13 +154,9 @@ const Simulation = () => {
             </div>
           </div>
           <div className="mt-4">
-            {/* <div className="bg-white mt-10 p-4 rounded-lg shadow-lg">
-              Delay Caused :{" "}
-              <span className="text-xl text-bold">{output} days</span>
-            </div> */}
+           
             <button onClick={calculateOutput}>Calculate Output</button>
 
-            {/* Display the output */}
             {output !== null && (
               <div className="bg-white mt-10 p-4 rounded-lg shadow-lg">
                 Delay Caused :{" "}
