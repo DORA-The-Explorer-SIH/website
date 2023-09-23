@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./Simulation.css";
 import BarChart from "./BarChart"; // Import the BarChart component
 import PieChart from "./PieChart"; // Import the PieChart component
@@ -74,27 +74,37 @@ const Simulation = () => {
   const [output, setOutput] = useState(null);
 
   const calculateOutput = useCallback(async () => {
-    const data = {
-      ...inputs,
-    };
-    console.log(data)
-    // axios.post('http://localhost:8000/predict', data)
-    //   .then(response => {
-    //     const prediction = response.data.prediction; 
-    //     setOutput(prediction);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error while fetching prediction:', error);
-    //   });
+    if (calculateOutputRef.current) {
+      const data = {
+        ...inputs,
+      };
+      console.log(data);
+      // axios.post('http://localhost:8000/predict', data)
+      //   .then(response => {
+      //     const prediction = response.data.prediction; 
+      //     setOutput(prediction);
+      //   })
+      //   .catch(error => {
+      //     console.error('Error while fetching prediction:', error);
+      //   });
+    }
   }, [inputs]);
 
   useEffect(() => {
     calculateOutput();
   }, [calculateOutput]);
 
+  const calculateOutputRef = useRef(false);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setInputs({ ...inputs, [name]: parseInt(value) });
+  };
+
+  const handleCalculateClick = () => {
+    calculateOutputRef.current = true; 
+    calculateOutput(); 
+    calculateOutputRef.current = false; 
   };
 
   return (
@@ -155,7 +165,7 @@ const Simulation = () => {
           </div>
           <div className="mt-4">
            
-            <button onClick={calculateOutput}>Calculate Output</button>
+            <button onClick={handleCalculateClick}>Calculate Output</button>
 
             {output !== null && (
               <div className="bg-white mt-10 p-4 rounded-lg shadow-lg">
