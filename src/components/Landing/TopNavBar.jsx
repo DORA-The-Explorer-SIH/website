@@ -21,11 +21,11 @@ const TopNavBar = () => {
   ];
 
   return (
-    <nav className="bg-white flex flex-col gap-2 md:flex-row justify-between w-full py-4 px-4 py-2 md:px-4">
+    <nav className="bg-white flex flex-col  md:flex-row justify-between w-full py-4 px-4 py-2 md:px-4 ">
       <div className="hidden md:flex items-start justify-center">
         <img className="w-72" src={JharLogo} alt="" />
       </div>
-      <div className="flex  flex-col items-start md:items-center justify-start md:justify-center">
+      <div className="flex  flex-col items-start md:items-center justify-start md:justify-center  md:bg-transparent">
         <div className="flex items-center justify-between w-full md:w-80">
           <img className="w-32 md:w-80" src={Pratyaksh} alt="" />
           <div className="md:hidden">
@@ -46,7 +46,11 @@ const TopNavBar = () => {
           ))}
         </div>
       </div>
-      <div className="flex items-start md:items-center justify-center gap-4 md:ml-32 h-8">
+      <div
+        className={`${
+          open ? "block" : "hidden"
+        } md:flex flex items-start px-2 md:items-center md:justify-center gap-4 md:ml-32 h-8 bg-background md:bg-transparent`}
+      >
         <button
           onClick={() => navigate("/dashboard")}
           className="px-4 font-bold rounded-sm border border-primary text-primary py-1"

@@ -11,7 +11,7 @@ import MapboxMap from "./components/MapboxMap";
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App h-screen">
         {/* <Navbar /> */}
 
         {/* <div className="content-container flex-grow"> */}

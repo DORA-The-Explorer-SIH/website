@@ -7,10 +7,10 @@ import Ai from "../../assets/artificial-intelligence-calendar.jpg";
 const Description = () => {
   return (
     <div className="flex flex-col gap-20 bg-background">
-      <div className="flex py-24 gap-16 items-start justify-center bg-white">
-        <img className="w-2/6" src={RealTimeMonitoring} alt="" />
-        <div className="w-96 text-left gap-4 flex flex-col ">
-          <p className="font-bold text-2xl">Real-Time Monitoring</p>
+      <div className="flex flex-col md:flex-row py-24 gap-16 items-center md:items-start justify-center bg-white">
+        <img className="w-5/6 md:w-2/6" src={RealTimeMonitoring} alt="" />
+        <div className="w-80 md:w-96 text-left gap-4 flex flex-col ">
+          <p className="px-4 font-bold text-2xl">Real-Time Monitoring</p>
 
           <ol className="list-decimal text-sm gap-2 flex flex-col">
             <li>
@@ -32,9 +32,9 @@ const Description = () => {
           </ol>
         </div>
       </div>
-      <div className="flex py-4 gap-16 items-start justify-center">
-        <div className="w-96 text-left gap-4 flex flex-col">
-          <p className="font-bold text-2xl">AI Task Scheduling</p>
+      <div className="flex flex-col-reverse md:flex-row  py-4 gap-16 items-center md:items-start justify-center">
+        <div className="w-80 md:w-96 text-left gap-4 flex flex-col">
+          <p className="px-4 font-bold text-2xl">AI Task Scheduling</p>
 
           <ol className="list-decimal text-sm gap-2 flex flex-col">
             <li>
@@ -55,12 +55,12 @@ const Description = () => {
             </li>
           </ol>
         </div>
-        <img className="w-2/6" src={Ai} alt="" />
+        <img className="w-5/6 md:w-2/6" src={Ai} alt="" />
       </div>
-      <div className="flex py-24 gap-16 items-start justify-center  bg-white">
-        <img className="w-2/6" src={gisDashboard} alt="" />
-        <div className="w-96 text-left gap-4 flex flex-col">
-          <p className="font-bold text-2xl">GIS Integration</p>
+      <div className="flex flex-col md:flex-row py-24 gap-16 items-center md:items-start justify-center  bg-white">
+        <img className="w-5/6 md:w-2/6" src={gisDashboard} alt="" />
+        <div className="w-80 md:w-96 text-left gap-4 flex flex-col">
+          <p className="px-4 font-bold text-2xl">GIS Integration</p>
 
           <ol className="list-decimal text-sm gap-2 flex flex-col">
             <li>
@@ -82,9 +82,9 @@ const Description = () => {
           </ol>
         </div>
       </div>
-      <div className="flex py-4 gap-16 items-start justify-center">
-        <div className="w-96 text-left gap-4 flex flex-col">
-          <p className="font-bold text-2xl">Analytics and Reports</p>
+      <div className="flex flex-col-reverse md:flex-row  py-4 gap-16 items-center md:items-start justify-center">
+        <div className="w-80 md:w-96 text-left gap-4 flex flex-col">
+          <p className="px-4 font-bold text-2xl">Analytics and Reports</p>
 
           <ol className="list-decimal text-sm gap-2 flex flex-col">
             <li>
@@ -107,12 +107,12 @@ const Description = () => {
             </li>
           </ol>
         </div>
-        <img className="w-2/6" src={analyticsDashboard} alt="" />
+        <img className="w-5/6 md:w-2/6" src={analyticsDashboard} alt="" />
       </div>
-      <div className="flex py-24 gap-16 items-start justify-center  bg-white">
-        <img className="w-2/6" src={simulationDashboard} alt="" />
-        <div className="w-96 text-left gap-4 flex flex-col">
-          <p className="font-bold text-2xl">Simulation Module</p>
+      <div className="flex flex-col md:flex-row  py-24 gap-16 items-center md:items-start justify-center  bg-white">
+        <img className="w-5/6 md:w-2/6" src={simulationDashboard} alt="" />
+        <div className="w-80 md:w-96 text-left gap-4 flex flex-col">
+          <p className="px-4 font-bold text-2xl">Simulation Module</p>
 
           <ol className="list-decimal text-sm gap-2 flex flex-col">
             <li>
