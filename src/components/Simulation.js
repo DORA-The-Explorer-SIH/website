@@ -4,7 +4,7 @@ import BarChart from "./BarChart"; // Import the BarChart component
 import PieChart from "./PieChart"; // Import the PieChart component
 import Topbar from "./Topbar";
 import HeatMap from "./HeatMap";
-import axios from "axios"; // Import axios for making HTTP requests
+// import axios from "axios"; 
 
 
 const Simulation = () => {

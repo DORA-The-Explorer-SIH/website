@@ -10,12 +10,12 @@ import { SiSimpleanalytics } from "react-icons/si";
 import { TbHeartRateMonitor, TbReport } from "react-icons/tb";
 import { PiGraphDuotone } from "react-icons/pi";
 
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+// import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 const Sidebar = () => {
   const [isCollapsed, setCollapsed] = useState(false);
   const [reports, setReports] = useState(true);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setCollapsed(!isCollapsed);
