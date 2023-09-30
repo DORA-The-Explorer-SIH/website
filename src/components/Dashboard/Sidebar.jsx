@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { RxDashboard } from "react-icons/rx";
 import { AiOutlineRight, AiOutlineLeft, AiOutlineDown } from "react-icons/ai";
-import { BsQrCodeScan } from "react-icons/bs";
-import { MdOutlineInventory2 } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
-import { MdOutlineLogout, MdOutlineMonitorHeart } from "react-icons/md";
+import { MdOutlineLogout } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Pratyaksh from "../../assets/pratyaksh_logo_white.png";
 import Pratyaksh_icon from "../../assets/pratyaksh_icon_white.png";
@@ -61,7 +59,7 @@ const Sidebar = () => {
             Dashboard
           </span>
         </Link>
-        <Link to="" className="flex items-center gap-2 text-lg">
+        <Link to="/dashboard/gis" className="flex items-center gap-2 text-lg">
           <TbHeartRateMonitor />
           <span className={`text-sm ${isCollapsed ? "hidden" : ""}`}>
             Monitoring
@@ -73,14 +71,14 @@ const Sidebar = () => {
             Analytics
           </span>
         </Link>
-        <Link to="" className="flex items-center gap-2 text-lg">
+        <Link to="/dashboard/simulation" className="flex items-center gap-2 text-lg">
           <PiGraphDuotone />
           <span className={`text-sm ${isCollapsed ? "hidden" : ""}`}>
             Simulator
           </span>
         </Link>
         <div className="flex items-center gap-2">
-          <Link to="" className="flex items-center gap-2 text-lg">
+          <Link to="/dashboard" className="flex items-center gap-2 text-lg">
             <TbReport />
             <span className={`text-sm ${isCollapsed ? "hidden" : ""}`}>
               Reports
